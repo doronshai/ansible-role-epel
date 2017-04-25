@@ -3,9 +3,10 @@
 
 - name: "Add epel yum repo"
   yum_repository:
-    name: Extra Packages for Enterprise Linux 7
+    name: epel.repo.ansible
     description: EPEL7 Repository
     baseurl: http://download.fedoraproject.org/pub/epel/7
+    mirrorlist: https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch
     enabled: 1
     gpgcheck: 1
     gpgkey: https://getfedora.org/static/352C64E5.txt
