@@ -1,12 +1,12 @@
 ---
 # tasks file for ansible-role-epel
 
-- name: "Install epel repo"
-  yum:
-    name: "{{ epel.repo_http_url }}"
-    state: present
+- name: "Add epel yum repo"
+  yum_repository:
+    name: Extra Packages for Enterprise Linux 7
+    description: EPEL7 Repository
+    baseurl: http://download.fedoraproject.org/pub/epel/7
+    enabled: 1
+    gpgcheck: 1
+    gpgkey: https://getfedora.org/static/352C64E5.txt
 
-- name: "Import epel repo key"
-  rpm_key:
-    key: "{{ epel.gpg_key_path }}"
-    state: present
